@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html class="dark" dir="rtl" lang="fa">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>firoze Store - جزئیات محصول</title>
+  <meta name="description" content="مشاهده مشخصات کامل، ویژگی‌ها و سفارش مستقیم پوشاک فیروزه در تلگرام">
+
+  <!-- CDN Tailwind with Tailwind Config -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "on-surface-variant": "#c6c5d6",
+            "inverse-surface": "#e3e0f3",
+            "surface-dim": "#12121f",
+            "on-secondary-fixed": "#001550",
+            "tertiary-fixed-dim": "#f6adff",
+            "outline-variant": "#464654",
+            "surface-tint": "#bfc1ff",
+            "inverse-on-surface": "#2f2f3d",
+            "error-container": "#93000a",
+            "on-background": "#e3e0f3",
+            "primary": "#bfc1ff",
+            "on-surface": "#e3e0f3",
+            "surface-container-lowest": "#0d0d19",
+            "surface": "#12121f",
+            "on-primary": "#12129c",
+            "on-tertiary-fixed": "#350041",
+            "on-secondary-container": "#b6c4ff",
+            "surface-variant": "#343341",
+            "surface-bright": "#383846",
+            "tertiary-fixed": "#fed6ff",
+            "surface-container-highest": "#343341",
+            "secondary": "#b6c4ff",
+            "on-tertiary": "#560068",
+            "secondary-container": "#0344cc",
+            "on-primary-fixed": "#02006d",
+            "surface-container-low": "#1a1a27",
+            "on-error-container": "#ffdad6",
+            "primary-container": "#2023a5",
+            "on-secondary-fixed-variant": "#003ab3",
+            "on-primary-container": "#959bff",
+            "inverse-primary": "#494fca",
+            "background": "#12121f",
+            "on-tertiary-container": "#e974ff",
+            "tertiary": "#f6adff",
+            "on-secondary": "#002780",
+            "error": "#ffb4ab",
+            "secondary-fixed": "#dce1ff",
+            "primary-fixed": "#e1e0ff",
+            "primary-fixed-dim": "#bfc1ff",
+            "on-error": "#690005",
+            "surface-container-high": "#292936",
+            "on-primary-fixed-variant": "#2f34b1",
+            "outline": "#908f9f",
+            "tertiary-container": "#66007a",
+            "on-tertiary-fixed-variant": "#7a0092",
+            "surface-container": "#1f1e2b",
+            "secondary-fixed-dim": "#b6c4ff"
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="antialiased min-h-screen text-on-surface bg-background selection:bg-primary-container selection:text-on-primary-container relative">
+  <!-- Atmospheric Background -->
+  <div class="fixed inset-0 pointer-events-none z-[-1] aurora-bg"></div>
+
+  <!-- Navigation Overlay -->
+  <div id="drawer-overlay" class="fixed inset-0 bg-black/60 z-[55] hidden opacity-0 transition-opacity duration-300"></div>
+
+  <!-- TopAppBar -->
+  <header class="bg-surface/60 backdrop-blur-xl fixed top-0 w-full z-50 border-b border-white/15 shadow-[0_0_15px_rgba(191,193,255,0.1)] flex flex-row-reverse justify-between items-center px-5 md:px-12 h-20 max-w-7xl mx-auto">
+    <button class="menu-toggle-btn text-primary hover:text-secondary active:scale-95 transition-transform p-2 rounded-full hover:bg-white/5" aria-label="منو">
+      <span class="material-symbols-outlined text-2xl">menu</span>
+    </button>
+    <a href="index.html" class="text-2xl md:text-3xl font-extrabold text-primary tracking-tight">firoze Store</a>
+    <div class="flex items-center gap-2">
+      <button class="cart-toggle-btn relative p-2 text-primary hover:text-secondary rounded-full hover:bg-white/5 transition-colors" aria-label="سبد خرید">
+        <span class="material-symbols-outlined text-2xl">shopping_cart</span>
+        <span class="cart-badge-count hidden absolute top-0 right-0 bg-secondary-container text-white text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center border border-white/20">0</span>
+      </button>
+      <a href="https://t.me/firozehstorebot" target="_blank" class="text-primary font-bold text-xs active:scale-95 transition-transform flex items-center gap-1 bg-white/5 px-3 py-1.5 rounded-full border border-white/10">
+        خرید از تلگرام
+      </a>
+    </div>
+  </header>
+
+  <!-- Navigation Drawer -->
+  <nav id="nav-drawer" class="bg-surface-dim/95 backdrop-blur-2xl h-full w-80 fixed right-0 top-0 z-[60] border-l border-white/10 shadow-2xl flex flex-col p-6 translate-x-full transition-transform duration-300 ease-in-out">
+    <div class="flex items-center justify-between mb-8 pb-4 border-b border-white/10">
+      <div class="text-2xl font-extrabold text-primary">firoze Store</div>
+      <button id="close-drawer-btn" class="text-on-surface-variant hover:text-primary transition-colors p-2 rounded-full hover:bg-white/5" aria-label="بستن منو">
+        <span class="material-symbols-outlined">close</span>
+      </button>
+    </div>
+    <ul class="flex flex-col gap-2">
+      <li>
+        <a href="index.html" class="flex items-center gap-4 px-4 py-3 rounded-xl text-on-surface-variant hover:bg-white/5 hover:text-primary transition-colors">
+          <span class="material-symbols-outlined">home</span>
+          <span>خانه</span>
+        </a>
+      </li>
+      <li>
+        <a href="products.html" class="flex items-center gap-4 px-4 py-3 rounded-xl bg-secondary-container/30 text-secondary border-r-4 border-secondary font-bold">
+          <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">shopping_bag</span>
+          <span>همه محصولات</span>
+        </a>
+      </li>
+      <li>
+        <a href="categories.html" class="flex items-center gap-4 px-4 py-3 rounded-xl text-on-surface-variant hover:bg-white/5 hover:text-primary transition-colors">
+          <span class="material-symbols-outlined">category</span>
+          <span>دسته‌بندی‌ها</span>
+        </a>
+      </li>
+      <li>
+        <a href="about.html" class="flex items-center gap-4 px-4 py-3 rounded-xl text-on-surface-variant hover:bg-white/5 hover:text-primary transition-colors">
+          <span class="material-symbols-outlined">info</span>
+          <span>درباره ما</span>
+        </a>
+      </li>
+      <li>
+        <a href="contact.html" class="flex items-center gap-4 px-4 py-3 rounded-xl text-on-surface-variant hover:bg-white/5 hover:text-primary transition-colors">
+          <span class="material-symbols-outlined">contact_support</span>
+          <span>تماس و پشتیبانی</span>
+        </a>
+      </li>
+      <li>
+        <a href="faq.html" class="flex items-center gap-4 px-4 py-3 rounded-xl text-on-surface-variant hover:bg-white/5 hover:text-primary transition-colors">
+          <span class="material-symbols-outlined">help</span>
+          <span>سوالات متداول</span>
+        </a>
+      </li>
+    </ul>
+    <div class="mt-auto pt-6 border-t border-white/10">
+      <a href="https://t.me/firozehstorebot" target="_blank" class="w-full glass-btn-primary py-3 rounded-xl flex items-center justify-center gap-2 text-sm">
+        <span class="material-symbols-outlined text-base">send</span>
+        <span>ورود به ربات تلگرام</span>
+      </a>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="pt-24 pb-36 px-5 max-w-3xl mx-auto">
+    <!-- Breadcrumb -->
+    <div class="flex items-center gap-2 text-xs text-on-surface-variant mb-4">
+      <a href="index.html" class="hover:text-primary transition-colors">خانه</a>
+      <span>/</span>
+      <a href="products.html" class="hover:text-primary transition-colors">محصولات</a>
+      <span>/</span>
+      <span id="detail-breadcrumb-cat" class="text-primary font-bold">پوشاک زنانه</span>
+    </div>
+
+    <!-- Hero Product Image Display -->
+    <section class="relative w-full aspect-[4/5] max-h-[480px] rounded-2xl overflow-hidden glass-panel mb-6">
+      <img id="detail-image" class="w-full h-full object-cover" src="" alt="تصویر محصول">
+      
+      <!-- Gradient Overlays -->
+      <div class="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-black/60 to-transparent pointer-events-none"></div>
+      <div class="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-background to-transparent pointer-events-none"></div>
+      
+      <!-- Badge -->
+      <span id="detail-badge" class="absolute top-4 right-4 bg-tertiary-container/90 text-tertiary text-xs font-bold px-3 py-1 rounded-full border border-tertiary/30">جدید</span>
+
+      <!-- Navigation dots -->
+      <div class="absolute bottom-4 left-0 right-0 flex justify-center gap-2">
+        <div class="w-2.5 h-2.5 rounded-full bg-primary shadow-[0_0_8px_rgba(191,193,255,0.8)]"></div>
+        <div class="w-2.5 h-2.5 rounded-full bg-on-surface-variant/40"></div>
+        <div class="w-2.5 h-2.5 rounded-full bg-on-surface-variant/40"></div>
+      </div>
+    </section>
+
+    <!-- Product Header Info -->
+    <section class="mb-6">
+      <div class="flex flex-col gap-2">
+        <span id="detail-category-label" class="text-xs text-secondary font-bold tracking-wider">پوشاک زنانه</span>
+        <h1 id="detail-title" class="text-2xl md:text-3xl font-extrabold text-on-surface leading-tight">عنوان محصول</h1>
+        <div class="flex items-center justify-between mt-2 pt-2 border-t border-white/10">
+          <span class="text-xs text-on-surface-variant">قیمت نهایی:</span>
+          <span id="detail-price" class="text-xl md:text-2xl font-bold text-primary">۰ تومان</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tabbed Details Structure -->
+    <section class="glass-panel rounded-2xl overflow-hidden mb-12">
+      <!-- Tabs -->
+      <div class="flex border-b border-white/10">
+        <button id="tab-btn-desc" onclick="switchTab('desc')" class="flex-1 py-4 text-primary border-b-2 border-primary font-semibold text-sm bg-white/5 transition-all">توضیحات</button>
+        <button id="tab-btn-specs" onclick="switchTab('specs')" class="flex-1 py-4 text-on-surface-variant hover:text-on-surface font-medium text-sm transition-all">ویژگی‌ها</button>
+        <button id="tab-btn-reviews" onclick="switchTab('reviews')" class="flex-1 py-4 text-on-surface-variant hover:text-on-surface font-medium text-sm transition-all">نظرات (۲)</button>
+      </div>
+
+      <!-- Tab 1: Descriptions -->
+      <div id="tab-content-desc" class="p-6 space-y-4 text-on-surface-variant leading-relaxed text-sm">
+        <p id="detail-desc-text" class="leading-relaxed">
+          توضیحات تفصیلی محصول در این بخش بارگذاری می‌شود.
+        </p>
+        <ul class="list-disc list-inside space-y-2 text-on-surface/90 pt-2">
+          <li>دسته‌بندی منظم موضوعی و متریال عالی</li>
+          <li>پشتیبانی و هماهنگی سایز مستقیم در تلگرام</li>
+          <li>ضمانت سلامت فیزیکی و اصالت کالا</li>
+        </ul>
+      </div>
+
+      <!-- Tab 2: Specs -->
+      <div id="tab-content-specs" class="p-6 space-y-3 text-on-surface-variant leading-relaxed text-sm hidden">
+        <ul id="detail-specs-list" class="space-y-2 text-on-surface/90">
+          <!-- Populated by JS -->
+        </ul>
+      </div>
+
+      <!-- Tab 3: Reviews -->
+      <div id="tab-content-reviews" class="p-6 space-y-4 text-on-surface-variant leading-relaxed text-sm hidden">
+        <div id="detail-reviews-list" class="space-y-3">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Related Products -->
+    <section class="mb-12">
+      <h2 class="text-lg font-bold text-on-surface mb-4 flex items-center gap-2">
+        <span class="material-symbols-outlined text-secondary">auto_awesome</span>
+        <span>محصولات مرتبط</span>
+      </h2>
+      <div id="related-products-list" class="flex overflow-x-auto gap-4 pb-4 no-scrollbar snap-x scroll-smooth -mx-5 px-5">
+        <!-- Injected via JS -->
+      </div>
+    </section>
+  </main>
+
+  <!-- Fixed Bottom Sticky Action Bar -->
+  <div class="fixed bottom-0 left-0 right-0 p-4 glass-panel rounded-t-2xl z-40 border-t border-white/20 shadow-[0_-10px_30px_rgba(0,0,0,0.6)]">
+    <div class="max-w-md mx-auto flex items-center gap-3">
+      <button id="add-to-cart-action-btn" class="p-4 rounded-xl glass-panel text-primary hover:bg-white/10 active:scale-95 transition-all border border-white/15 shrink-0" title="افزودن به سبد خرید">
+        <span class="material-symbols-outlined text-2xl">add_shopping_cart</span>
+      </button>
+      <a id="telegram-direct-order-btn" class="flex-1 glass-btn-primary py-4 rounded-xl flex items-center justify-center gap-2 font-bold text-base shadow-lg" href="https://t.me/firozehstorebot" target="_blank">
+        <span class="material-symbols-outlined text-xl">send</span>
+        <span>خرید مستقیم از تلگرام</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Shopping Cart Modal -->
+  <div id="cart-modal-overlay" class="fixed inset-0 bg-black/70 z-[80] hidden opacity-0 transition-opacity duration-300"></div>
+  <div id="cart-modal" class="fixed inset-x-4 top-20 max-w-lg mx-auto bg-surface-dim/95 backdrop-blur-2xl border border-white/15 rounded-2xl p-6 z-[85] shadow-2xl hidden opacity-0 scale-95 transition-all duration-300">
+    <div class="flex items-center justify-between pb-4 border-b border-white/10 mb-4">
+      <div class="flex items-center gap-2">
+        <span class="material-symbols-outlined text-primary">shopping_cart</span>
+        <h3 class="text-lg font-bold text-on-surface">سبد خرید</h3>
+      </div>
+      <button id="close-cart-modal-btn" class="text-on-surface-variant hover:text-primary p-1 rounded-full hover:bg-white/5">
+        <span class="material-symbols-outlined">close</span>
+      </button>
+    </div>
+    <div id="cart-modal-items" class="mb-6"></div>
+    <div class="pt-4 border-t border-white/10 flex flex-col gap-4">
+      <div class="flex justify-between items-center text-sm font-bold">
+        <span class="text-on-surface-variant">مبلغ قابل پرداخت:</span>
+        <span id="cart-modal-total" class="text-primary text-base">۰ تومان</span>
+      </div>
+      <a id="cart-modal-checkout-btn" href="#" target="_blank" class="w-full glass-btn-primary py-3.5 rounded-xl flex items-center justify-center gap-2 text-center text-sm font-bold">
+        <span class="material-symbols-outlined text-lg">send</span>
+        <span>ثبت و نهایی‌سازی در تلگرام</span>
+      </a>
+    </div>
+  </div>
+
+  <script src="assets/js/main.js"></script>
+  <script>
+    let currentProduct = null;
+
+    function switchTab(tab) {
+      const tabs = ['desc', 'specs', 'reviews'];
+      tabs.forEach(t => {
+        const btn = document.getElementById(`tab-btn-${t}`);
+        const content = document.getElementById(`tab-content-${t}`);
+        if (t === tab) {
+          btn.className = "flex-1 py-4 text-primary border-b-2 border-primary font-semibold text-sm bg-white/5 transition-all";
+          content.classList.remove('hidden');
+        } else {
+          btn.className = "flex-1 py-4 text-on-surface-variant hover:text-on-surface font-medium text-sm transition-all";
+          content.classList.add('hidden');
+        }
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const prodId = urlParams.get('id') || 'prod-1';
+      currentProduct = PRODUCTS_DATA.find(p => p.id === prodId) || PRODUCTS_DATA[0];
+
+      // Populate Elements
+      document.title = `${currentProduct.title} - firoze Store`;
+      document.getElementById('detail-title').textContent = currentProduct.title;
+      
+      const priceElem = document.getElementById('detail-price');
+      if (currentProduct.originalPriceFormatted) {
+        priceElem.innerHTML = `
+          <div class="flex items-center gap-3">
+            <span class="text-sm text-on-surface-variant/50 line-through">${currentProduct.originalPriceFormatted}</span>
+            <span class="text-error font-bold">${currentProduct.priceFormatted}</span>
+          </div>
+        `;
+      } else {
+        priceElem.textContent = currentProduct.priceFormatted;
+      }
+
+      document.getElementById('detail-image').src = currentProduct.image;
+      document.getElementById('detail-image').alt = currentProduct.title;
+      document.getElementById('detail-category-label').textContent = currentProduct.categoryLabel;
+      document.getElementById('detail-breadcrumb-cat').textContent = currentProduct.categoryLabel;
+      
+      const badgeElem = document.getElementById('detail-badge');
+      badgeElem.textContent = currentProduct.badge;
+      if (currentProduct.badgeType === 'error') {
+        badgeElem.className = "absolute top-4 right-4 bg-error-container/90 text-error text-xs font-bold px-3 py-1 rounded-full border border-error/30 shadow-[0_0_15px_rgba(255,84,73,0.3)]";
+      } else if (currentProduct.badgeType === 'secondary') {
+        badgeElem.className = "absolute top-4 right-4 bg-secondary-container/90 text-secondary text-xs font-bold px-3 py-1 rounded-full border border-secondary/30";
+      } else {
+        badgeElem.className = "absolute top-4 right-4 bg-primary-container/90 text-primary text-xs font-bold px-3 py-1 rounded-full border border-primary/30";
+      }
+      
+      document.getElementById('detail-desc-text').textContent = currentProduct.description;
+
+      // Specs
+      const specsList = document.getElementById('detail-specs-list');
+      if (specsList && currentProduct.specs) {
+        specsList.innerHTML = currentProduct.specs.map(s => `<li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-primary"></span><span>${s}</span></li>`).join('');
+      }
+
+      // Reviews
+      const reviewsList = document.getElementById('detail-reviews-list');
+      if (reviewsList && currentProduct.reviews) {
+        reviewsList.innerHTML = currentProduct.reviews.map(r => `
+          <div class="glass-panel p-3 rounded-xl">
+            <div class="flex justify-between items-center mb-1">
+              <span class="font-bold text-xs text-primary">${r.name}</span>
+              <div class="flex text-tertiary text-xs">★★★★★</div>
+            </div>
+            <p class="text-xs text-on-surface-variant/80">${r.comment}</p>
+          </div>
+        `).join('');
+      }
+
+      // Telegram Order Button
+      const tgBtn = document.getElementById('telegram-direct-order-btn');
+      if (tgBtn) {
+        tgBtn.href = cart.generateTelegramOrderUrl(currentProduct);
+      }
+
+      // Add to cart button
+      const addBtn = document.getElementById('add-to-cart-action-btn');
+      if (addBtn) {
+        addBtn.addEventListener('click', () => {
+          cart.addItem(currentProduct.id);
+        });
+      }
+
+      // Related Products
+      const relatedList = document.getElementById('related-products-list');
+      if (relatedList) {
+        const related = PRODUCTS_DATA.filter(p => p.id !== currentProduct.id).slice(0, 4);
+        relatedList.innerHTML = related.map(p => `
+          <a class="snap-start shrink-0 w-[180px] glass-panel rounded-xl overflow-hidden group block" href="product-detail.html?id=${p.id}">
+            <div class="aspect-square bg-surface-container-low relative overflow-hidden">
+              <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="${p.image}" alt="${p.title}">
+            </div>
+            <div class="p-3">
+              <h3 class="font-bold text-xs text-on-surface truncate mb-1">${p.title}</h3>
+              <span class="text-secondary text-xs font-bold block">${p.priceFormatted}</span>
+            </div>
+          </a>
+        `).join('');
+      }
+    });
+  </script>
+</body>
+</html>

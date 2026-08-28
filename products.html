@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html class="dark" dir="rtl" lang="fa">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>firoze Store - کاوش همه محصولات</title>
+  <meta name="description" content="لیست کامل پوشاک زنانه، لباس زیر و محصولات اختصاصی فیروزه استور">
+
+  <!-- CDN Tailwind with Tailwind Config -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "on-surface-variant": "#c6c5d6",
+            "inverse-surface": "#e3e0f3",
+            "surface-dim": "#12121f",
+            "on-secondary-fixed": "#001550",
+            "tertiary-fixed-dim": "#f6adff",
+            "outline-variant": "#464654",
+            "surface-tint": "#bfc1ff",
+            "inverse-on-surface": "#2f2f3d",
+            "error-container": "#93000a",
+            "on-background": "#e3e0f3",
+            "primary": "#bfc1ff",
+            "on-surface": "#e3e0f3",
+            "surface-container-lowest": "#0d0d19",
+            "surface": "#12121f",
+            "on-primary": "#12129c",
+            "on-tertiary-fixed": "#350041",
+            "on-secondary-container": "#b6c4ff",
+            "surface-variant": "#343341",
+            "surface-bright": "#383846",
+            "tertiary-fixed": "#fed6ff",
+            "surface-container-highest": "#343341",
+            "secondary": "#b6c4ff",
+            "on-tertiary": "#560068",
+            "secondary-container": "#0344cc",
+            "on-primary-fixed": "#02006d",
+            "surface-container-low": "#1a1a27",
+            "on-error-container": "#ffdad6",
+            "primary-container": "#2023a5",
+            "on-secondary-fixed-variant": "#003ab3",
+            "on-primary-container": "#959bff",
+            "inverse-primary": "#494fca",
+            "background": "#12121f",
+            "on-tertiary-container": "#e974ff",
+            "tertiary": "#f6adff",
+            "on-secondary": "#002780",
+            "error": "#ffb4ab",
+            "secondary-fixed": "#dce1ff",
+            "primary-fixed": "#e1e0ff",
+            "primary-fixed-dim": "#bfc1ff",
+            "on-error": "#690005",
+            "surface-container-high": "#292936",
+            "on-primary-fixed-variant": "#2f34b1",
+            "outline": "#908f9f",
+            "tertiary-container": "#66007a",
+            "on-tertiary-fixed-variant": "#7a0092",
+            "surface-container": "#1f1e2b",
+            "secondary-fixed-dim": "#b6c4ff"
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="antialiased min-h-screen text-on-surface bg-background pt-20 pb-24 md:pb-12">
+  <!-- Aurora Background -->
+  <div class="aurora-blob blob-1"></div>
+  <div class="aurora-blob blob-2"></div>
+  <div class="aurora-blob blob-3"></div>
+
+  <!-- Navigation Overlay -->
+  <div id="drawer-overlay" class="fixed inset-0 bg-black/60 z-[55] hidden opacity-0 transition-opacity duration-300"></div>
+
+  <!-- TopAppBar -->
+  <header class="bg-surface/60 backdrop-blur-xl fixed top-0 w-full z-50 border-b border-white/15 shadow-[0_0_15px_rgba(191,193,255,0.1)]">
+    <div class="flex flex-row-reverse justify-between items-center px-5 md:px-12 h-20 w-full max-w-7xl mx-auto">
+      <button class="menu-toggle-btn text-primary hover:text-secondary p-2 rounded-full hover:bg-white/5 active:scale-95 flex items-center justify-center" aria-label="منو">
+        <span class="material-symbols-outlined text-2xl">menu</span>
+      </button>
+
+      <a href="index.html" class="text-2xl md:text-3xl font-extrabold text-primary tracking-tight">firoze Store</a>
+
+      <div class="flex items-center gap-3">
+        <button class="cart-toggle-btn relative p-2 text-primary hover:text-secondary rounded-full hover:bg-white/5 transition-colors" aria-label="سبد خرید">
+          <span class="material-symbols-outlined text-2xl">shopping_cart</span>
+          <span class="cart-badge-count hidden absolute top-0 right-0 bg-secondary-container text-white text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center border border-white/20">0</span>
+        </button>
+        <a href="https://t.me/firozehstorebot" target="_blank" class="glass-panel px-4 py-2 rounded-full text-xs md:text-sm text-primary font-bold hover:text-secondary hover:border-primary/50 transition-all duration-300 hidden sm:inline-flex items-center gap-1">
+          خرید از تلگرام
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Navigation Drawer -->
+  <nav id="nav-drawer" class="bg-surface-dim/95 backdrop-blur-2xl h-full w-80 fixed right-0 top-0 z-[60] border-l border-white/10 shadow-2xl flex flex-col p-6 translate-x-full transition-transform duration-300 ease-in-out">
+    <div class="flex items-center justify-between mb-8 pb-4 border-b border-white/10">
+      <div class="text-2xl font-extrabold text-primary">firoze Store</div>
+      <button id="close-drawer-btn" class="text-on-surface-variant hover:text-primary transition-colors p-2 rounded-full hover:bg-white/5" aria-label="بستن منو">
+        <span class="material-symbols-outlined">close</span>
+      </button>
+    </div>
+    <ul class="flex flex-col gap-2">
+      <li>
+        <a href="index.html" class="flex items-center gap-4 px-4 py-3 rounded-xl text-on-surface-variant hover:bg-white/5 hover:text-primary transition-colors">
+          <span class="material-symbols-outlined">home</span>
+          <span>خانه</span>
+        </a>
+      </li>
+      <li>
+        <a href="products.html" class="flex items-center gap-4 px-4 py-3 rounded-xl bg-secondary-container/30 text-secondary border-r-4 border-secondary font-bold">
+          <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">shopping_bag</span>
+          <span>همه محصولات</span>
+        </a>
+      </li>
+      <li>
+        <a href="categories.html" class="flex items-center gap-4 px-4 py-3 rounded-xl text-on-surface-variant hover:bg-white/5 hover:text-primary transition-colors">
+          <span class="material-symbols-outlined">category</span>
+          <span>دسته‌بندی‌ها</span>
+        </a>
+      </li>
+      <li>
+        <a href="about.html" class="flex items-center gap-4 px-4 py-3 rounded-xl text-on-surface-variant hover:bg-white/5 hover:text-primary transition-colors">
+          <span class="material-symbols-outlined">info</span>
+          <span>درباره ما</span>
+        </a>
+      </li>
+      <li>
+        <a href="contact.html" class="flex items-center gap-4 px-4 py-3 rounded-xl text-on-surface-variant hover:bg-white/5 hover:text-primary transition-colors">
+          <span class="material-symbols-outlined">contact_support</span>
+          <span>تماس و پشتیبانی</span>
+        </a>
+      </li>
+      <li>
+        <a href="faq.html" class="flex items-center gap-4 px-4 py-3 rounded-xl text-on-surface-variant hover:bg-white/5 hover:text-primary transition-colors">
+          <span class="material-symbols-outlined">help</span>
+          <span>سوالات متداول</span>
+        </a>
+      </li>
+      <li class="pt-2 border-t border-white/5 mt-1">
+        <a href="admin.html" class="flex items-center gap-4 px-4 py-3 rounded-xl text-primary hover:bg-primary/10 transition-colors font-bold">
+          <span class="material-symbols-outlined text-primary">admin_panel_settings</span>
+          <span>پنل مدیریت فروشگاه</span>
+        </a>
+      </li>
+    </ul>
+    <div class="mt-auto pt-6 border-t border-white/10">
+      <a href="https://t.me/firozehstorebot" target="_blank" class="w-full glass-btn-primary py-3 rounded-xl flex items-center justify-center gap-2 text-sm">
+        <span class="material-symbols-outlined text-base">send</span>
+        <span>ورود به ربات تلگرام</span>
+      </a>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="w-full max-w-7xl mx-auto px-5 md:px-12 pt-8 pb-12 flex flex-col gap-8">
+    <!-- Header Section: Title & Search -->
+    <section class="flex flex-col gap-6 w-full">
+      <div class="flex justify-between items-end">
+        <div>
+          <h1 class="text-2xl md:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-l from-primary to-secondary">
+            کاوش محصولات
+          </h1>
+          <p class="text-on-surface-variant text-sm mt-1">جدیدترین و لوکس‌ترین مدل‌های پوشاک زنانه فیروزه</p>
+        </div>
+      </div>
+
+      <!-- Search & Filter Bar -->
+      <div class="flex gap-3 items-center w-full">
+        <div class="relative flex-1 group">
+          <span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-outline group-focus-within:text-primary transition-colors">search</span>
+          <input id="product-search-input" 
+                 class="glass-input w-full h-14 pl-4 pr-12 rounded-xl text-on-surface placeholder:text-outline-variant text-sm md:text-base" 
+                 placeholder="جستجو در نام و دسته‌بندی محصولات..." 
+                 type="text">
+        </div>
+        <button id="filter-modal-btn" class="glass-panel h-14 w-14 rounded-xl flex items-center justify-center text-primary hover:bg-primary-container/20 transition-all duration-300 active:scale-95 shrink-0" title="فیلترها">
+          <span class="material-symbols-outlined">tune</span>
+        </button>
+      </div>
+
+      <!-- Category Chips -->
+      <div id="category-chips" class="flex gap-3 overflow-x-auto no-scrollbar pb-2 pt-1 w-full">
+        <button data-cat="all" class="chip-btn px-6 py-2 rounded-full text-xs md:text-sm whitespace-nowrap transition-all duration-300 bg-tertiary-container/80 text-tertiary border border-tertiary/30 shadow-[0_0_15px_rgba(246,173,255,0.2)] font-bold active">
+          همه محصولات
+        </button>
+        <button data-cat="takhfif" class="chip-btn glass-panel px-6 py-2 rounded-full text-xs md:text-sm text-error whitespace-nowrap hover:bg-error-container/20 hover:border-error/50 transition-all duration-300 font-bold flex items-center gap-1.5">
+          <span class="material-symbols-outlined text-sm">local_fire_department</span>
+          <span>تخفیف ویژه</span>
+        </button>
+        <button data-cat="poshak" class="chip-btn glass-panel px-6 py-2 rounded-full text-xs md:text-sm text-on-surface-variant whitespace-nowrap hover:text-primary hover:border-primary/50 transition-all duration-300">
+          پوشاک زنانه
+        </button>
+      </div>
+    </section>
+
+    <!-- Product Grid -->
+    <section id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 w-full">
+      <!-- Injected via JavaScript -->
+    </section>
+
+    <!-- Empty State -->
+    <div id="no-products-msg" class="hidden py-16 flex-col items-center justify-center text-center text-on-surface-variant gap-3">
+      <span class="material-symbols-outlined text-6xl text-primary/30">search_off</span>
+      <h3 class="text-xl font-bold text-on-surface">محصولی با این مشخصات یافت نشد</h3>
+      <p class="text-sm text-on-surface-variant/70">عبارت دیگری را جستجو کنید یا فیلتر دسته‌بندی را تغییر دهید.</p>
+    </div>
+
+    <!-- Load More Button -->
+    <div class="flex justify-center mt-4 w-full">
+      <button onclick="showToast('تمامی محصولات فعال بارگذاری شده‌اند.')" class="glass-panel px-8 py-3 rounded-full text-primary hover:bg-primary-container/20 hover:text-white transition-all duration-300 font-bold border border-primary/20 text-sm">
+        بارگذاری بیشتر
+      </button>
+    </div>
+  </main>
+
+  <!-- Quick View Modal -->
+  <div id="quickview-modal-overlay" class="fixed inset-0 bg-black/70 z-[80] hidden opacity-0 transition-opacity duration-300"></div>
+  <div id="quickview-modal" class="fixed inset-x-4 top-16 max-w-lg mx-auto bg-surface-dim/95 backdrop-blur-2xl border border-white/15 rounded-2xl p-6 z-[85] shadow-2xl hidden opacity-0 scale-95 transition-all duration-300 max-h-[85vh] overflow-y-auto">
+    <div class="flex items-center justify-between pb-3 border-b border-white/10 mb-4">
+      <h3 id="quickview-title" class="text-base font-bold text-on-surface truncate">جزئیات سریع محصول</h3>
+      <button id="close-quickview-btn" class="text-on-surface-variant hover:text-primary p-1 rounded-full hover:bg-white/5">
+        <span class="material-symbols-outlined">close</span>
+      </button>
+    </div>
+    <div id="quickview-body">
+      <!-- Populated via JS -->
+    </div>
+  </div>
+
+  <!-- Shopping Cart Modal -->
+  <div id="cart-modal-overlay" class="fixed inset-0 bg-black/70 z-[80] hidden opacity-0 transition-opacity duration-300"></div>
+  <div id="cart-modal" class="fixed inset-x-4 top-20 max-w-lg mx-auto bg-surface-dim/95 backdrop-blur-2xl border border-white/15 rounded-2xl p-6 z-[85] shadow-2xl hidden opacity-0 scale-95 transition-all duration-300">
+    <div class="flex items-center justify-between pb-4 border-b border-white/10 mb-4">
+      <div class="flex items-center gap-2">
+        <span class="material-symbols-outlined text-primary">shopping_cart</span>
+        <h3 class="text-lg font-bold text-on-surface">سبد خرید</h3>
+      </div>
+      <button id="close-cart-modal-btn" class="text-on-surface-variant hover:text-primary p-1 rounded-full hover:bg-white/5">
+        <span class="material-symbols-outlined">close</span>
+      </button>
+    </div>
+    <div id="cart-modal-items" class="mb-6"></div>
+    <div class="pt-4 border-t border-white/10 flex flex-col gap-4">
+      <div class="flex justify-between items-center text-sm font-bold">
+        <span class="text-on-surface-variant">مبلغ قابل پرداخت:</span>
+        <span id="cart-modal-total" class="text-primary text-base">۰ تومان</span>
+      </div>
+      <a id="cart-modal-checkout-btn" href="#" target="_blank" class="w-full glass-btn-primary py-3.5 rounded-xl flex items-center justify-center gap-2 text-center text-sm font-bold">
+        <span class="material-symbols-outlined text-lg">send</span>
+        <span>ثبت و نهایی‌سازی در تلگرام</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Bottom Navigation Bar (Mobile Shell) -->
+  <nav class="fixed bottom-4 left-4 right-4 rounded-full z-50 bg-surface/60 backdrop-blur-xl border border-white/15 shadow-2xl md:hidden flex flex-row-reverse justify-around items-center h-16 px-4">
+    <a href="index.html" class="flex flex-col items-center justify-center text-on-surface-variant/60 hover:text-primary transition-colors">
+      <span class="material-symbols-outlined text-2xl">home</span>
+      <span class="text-[10px] mt-0.5">خانه</span>
+    </a>
+    <a href="products.html" class="flex flex-col items-center justify-center text-primary drop-shadow-[0_0_8px_rgba(191,193,255,0.6)] -translate-y-0.5 transition-all">
+      <span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">storefront</span>
+      <span class="text-[10px] font-bold mt-0.5">فروشگاه</span>
+    </a>
+    <a href="#" class="cart-toggle-btn flex flex-col items-center justify-center text-on-surface-variant/60 hover:text-primary transition-colors relative">
+      <span class="cart-dot-indicator hidden absolute top-0 right-3 w-2 h-2 bg-tertiary rounded-full shadow-[0_0_6px_rgba(246,173,255,0.8)]"></span>
+      <span class="material-symbols-outlined text-2xl">shopping_cart</span>
+      <span class="text-[10px] mt-0.5">سبد خرید</span>
+    </a>
+    <a href="about.html" class="flex flex-col items-center justify-center text-on-surface-variant/60 hover:text-primary transition-colors">
+      <span class="material-symbols-outlined text-2xl">person</span>
+      <span class="text-[10px] mt-0.5">درباره ما</span>
+    </a>
+  </nav>
+
+  <script src="assets/js/main.js"></script>
+  <script>
+    // Product Page Script
+    document.addEventListener('DOMContentLoaded', () => {
+      const grid = document.getElementById('products-grid');
+      const searchInput = document.getElementById('product-search-input');
+      const chipButtons = document.querySelectorAll('.chip-btn');
+      const noProdMsg = document.getElementById('no-products-msg');
+
+      let currentCat = 'all';
+      let searchQuery = '';
+
+      // Check URL query parameters (e.g., ?cat=poshak)
+      const urlParams = new URLSearchParams(window.location.search);
+      const catParam = urlParams.get('cat');
+      if (catParam) {
+        currentCat = catParam;
+        chipButtons.forEach(btn => {
+          if (btn.getAttribute('data-cat') === catParam) {
+            setActiveChip(btn);
+          }
+        });
+      }
+
+      function setActiveChip(activeBtn) {
+        chipButtons.forEach(btn => {
+          btn.className = "chip-btn glass-panel px-6 py-2 rounded-full text-xs md:text-sm text-on-surface-variant whitespace-nowrap hover:text-primary hover:border-primary/50 transition-all duration-300";
+        });
+        activeBtn.className = "chip-btn px-6 py-2 rounded-full text-xs md:text-sm whitespace-nowrap transition-all duration-300 bg-tertiary-container/80 text-tertiary border border-tertiary/30 shadow-[0_0_15px_rgba(246,173,255,0.2)] font-bold active";
+      }
+
+      function renderProducts() {
+        let filtered = PRODUCTS_DATA.filter(item => {
+          let matchCat = false;
+          if (currentCat === 'all') {
+            matchCat = true;
+          } else if (currentCat === 'takhfif') {
+            matchCat = item.isDiscounted === true || item.category === 'takhfif' || item.badge === 'تخفیف ویژه';
+          } else {
+            matchCat = item.category === currentCat;
+          }
+
+          const matchSearch = (item.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
+                               item.categoryLabel.toLowerCase().includes(searchQuery.toLowerCase()));
+          return matchCat && matchSearch;
+        });
+
+        if (filtered.length === 0) {
+          grid.innerHTML = '';
+          noProdMsg.classList.remove('hidden');
+          noProdMsg.classList.add('flex');
+          return;
+        }
+
+        noProdMsg.classList.add('hidden');
+        noProdMsg.classList.remove('flex');
+
+        let html = '';
+        filtered.forEach(p => {
+          const badgeClass = p.badgeType === 'error' ? 'bg-error-container/90 text-error border-error/30 shadow-[0_0_15px_rgba(255,84,73,0.3)]' :
+                             p.badgeType === 'secondary' ? 'bg-secondary-container/90 text-secondary border-secondary/30' :
+                             'bg-tertiary-container/90 text-tertiary border-tertiary/30';
+
+          const priceHtml = p.originalPriceFormatted ? `
+            <div class="flex flex-col">
+              <span class="text-[11px] text-error font-bold flex items-center gap-1">
+                <span class="material-symbols-outlined text-xs">local_fire_department</span>
+                <span>تخفیف ویژه</span>
+              </span>
+              <div class="flex items-center gap-2">
+                <span class="text-xs text-on-surface-variant/50 line-through">${p.originalPriceFormatted}</span>
+                <span class="text-error font-bold text-sm">${p.priceFormatted}</span>
+              </div>
+            </div>
+          ` : `
+            <div class="flex flex-col">
+              <span class="text-xs text-on-surface-variant/70">قیمت</span>
+              <span class="text-primary font-bold text-sm">${p.priceFormatted}</span>
+            </div>
+          `;
+
+          html += `
+            <article class="glass-panel rounded-2xl overflow-hidden flex flex-col group relative transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(191,193,255,0.15)]">
+              <div class="absolute top-4 right-4 z-20 flex gap-2">
+                <span class="${badgeClass} backdrop-blur-md text-xs font-bold px-3 py-1 rounded-full border">${p.badge}</span>
+              </div>
+              <div class="h-56 w-full relative overflow-hidden bg-surface-container-low flex items-center justify-center cursor-pointer" onclick="openQuickView('${p.id}')">
+                <img src="${p.image}" alt="${p.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                <div class="absolute inset-0 bg-gradient-to-t from-surface-dim via-transparent to-transparent opacity-80 pointer-events-none"></div>
+              </div>
+              <div class="p-5 flex flex-col gap-3 relative z-20 flex-1">
+                <span class="text-secondary text-[11px] font-bold tracking-widest bg-secondary/10 w-fit px-2 py-0.5 rounded">${p.categoryLabel}</span>
+                <h3 class="font-bold text-sm text-on-surface line-clamp-1 hover:text-primary cursor-pointer" onclick="openQuickView('${p.id}')">${p.title}</h3>
+                <div class="mt-auto pt-4 flex items-center justify-between border-t border-white/5">
+                  ${priceHtml}
+                  <div class="flex items-center gap-2">
+                    <a href="product-detail.html?id=${p.id}" class="bg-surface-variant hover:bg-white/10 text-primary w-10 h-10 rounded-full flex items-center justify-center border border-white/10 transition-colors" title="صفحه محصول">
+                      <span class="material-symbols-outlined text-[20px]">visibility</span>
+                    </a>
+                    <button onclick="cart.addItem('${p.id}')" class="bg-gradient-to-r from-primary-container to-secondary-container text-white w-10 h-10 rounded-full flex items-center justify-center hover:shadow-[0_0_15px_rgba(182,196,255,0.4)] transition-all duration-300 active:scale-95" title="افزودن به سبد">
+                      <span class="material-symbols-outlined text-[20px]">add_shopping_cart</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </article>
+          `;
+        });
+
+        grid.innerHTML = html;
+      }
+
+      // Chip filters
+      chipButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          currentCat = btn.getAttribute('data-cat');
+          setActiveChip(btn);
+          renderProducts();
+        });
+      });
+
+      // Search input handler
+      if (searchInput) {
+        searchInput.addEventListener('input', (e) => {
+          searchQuery = e.target.value.trim();
+          renderProducts();
+        });
+      }
+
+      // Initial render
+      renderProducts();
+    });
+
+    // Quick View Modal
+    function openQuickView(productId) {
+      const product = PRODUCTS_DATA.find(p => p.id === productId);
+      if (!product) return;
+
+      const modal = document.getElementById('quickview-modal');
+      const overlay = document.getElementById('quickview-modal-overlay');
+      const title = document.getElementById('quickview-title');
+      const body = document.getElementById('quickview-body');
+
+      title.textContent = product.title;
+      body.innerHTML = `
+        <div class="flex flex-col gap-4">
+          <div class="aspect-video w-full rounded-xl overflow-hidden bg-surface-container-low relative">
+            <img src="${product.image}" alt="${product.title}" class="w-full h-full object-cover">
+          </div>
+          <div>
+            <div class="flex justify-between items-center mb-2">
+              <span class="text-xs text-secondary font-bold">${product.categoryLabel}</span>
+              ${product.originalPriceFormatted ? `
+                <div class="flex items-center gap-2">
+                  <span class="text-xs text-on-surface-variant/50 line-through">${product.originalPriceFormatted}</span>
+                  <span class="text-error font-bold text-base">${product.priceFormatted}</span>
+                </div>
+              ` : `
+                <span class="text-primary font-bold text-base">${product.priceFormatted}</span>
+              `}
+            </div>
+            <p class="text-xs text-on-surface-variant leading-relaxed mb-4">${product.description}</p>
+          </div>
+          <div class="flex items-center gap-3 pt-3 border-t border-white/10">
+            <button onclick="cart.addItem('${product.id}')" class="flex-1 glass-btn-primary py-3 rounded-xl flex items-center justify-center gap-2 text-xs font-bold">
+              <span class="material-symbols-outlined text-base">add_shopping_cart</span>
+              <span>افزودن به سبد</span>
+            </button>
+            <a href="product-detail.html?id=${product.id}" class="glass-panel py-3 px-4 rounded-xl text-primary text-xs font-bold hover:bg-white/5 transition-colors">
+              مشاهده کامل
+            </a>
+          </div>
+        </div>
+      `;
+
+      modal.classList.remove('hidden');
+      overlay.classList.remove('hidden');
+      setTimeout(() => {
+        modal.classList.remove('opacity-0', 'scale-95');
+        overlay.classList.remove('opacity-0');
+      }, 10);
+      document.body.style.overflow = 'hidden';
+    }
+
+    // Close quick view handlers
+    document.addEventListener('DOMContentLoaded', () => {
+      const modal = document.getElementById('quickview-modal');
+      const overlay = document.getElementById('quickview-modal-overlay');
+      const closeBtn = document.getElementById('close-quickview-btn');
+
+      function closeQuickView() {
+        if (!modal || !overlay) return;
+        modal.classList.add('opacity-0', 'scale-95');
+        overlay.classList.add('opacity-0');
+        setTimeout(() => {
+          modal.classList.add('hidden');
+          overlay.classList.add('hidden');
+        }, 300);
+        document.body.style.overflow = '';
+      }
+
+      if (closeBtn) closeBtn.addEventListener('click', closeQuickView);
+      if (overlay) overlay.addEventListener('click', closeQuickView);
+    });
+  </script>
+</body>
+</html>
